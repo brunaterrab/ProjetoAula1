@@ -1,9 +1,12 @@
 ﻿using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.Options;
 using System.Drawing;
+using System.Reflection.Emit;
 using System.Runtime.ConstrainedExecution;
+using System.Runtime.Intrinsics.Arm;
 using System.Text;
 
 namespace ProjetoAula1.Controllers
@@ -314,11 +317,171 @@ namespace ProjetoAula1.Controllers
             return chiquinha;
             // Bataman meu ovo
         }
+
+        [HttpGet("ExercicioCasa28")]
+        public string ExercicioCasa28(decimal valor1, decimal valor2, decimal valor3)
+        {
+
+            if (valor1 > valor2 && valor1 > valor3)
+            {
+                return "O numero maior é: numero1!";
+            }
+            else if (valor2 > valor1 && valor2 > valor3)
+            {
+                return "O numero maior é: numero2!";
+            }
+            else
+            {
+                return "O numero maior é: numero3!";
+            }
+        }
+        // [HttpGet("ExercicioCasa29")]
+        //public string ExercicioCasa29(decimal valor1, decimal valor2, decimal valor3)
+        //{
+        //Ler 3 valores (considere que não serão informados valores iguais) e escrever a soma dos 2 maiores
+        //{
+        //int meio = 0
+        //int inicio = 0
+        //int final = 0
+        // if (n1>n2) && (n1>n3)
+        // 
+        //}
+
+        [HttpGet("ExercicioCasa30")]
+        public string ExercicioCasa30(int n1, int n2, int n3)
+        //30) Ler 3 valores(considere que não serão informados valores iguais) e escrevê-los em ordem crescente.
+        {
+
+            if (n1 == n2 || n2 == n3 || n3 == n1)
+            {
+                return "valores iguais não são permitidos!";
+            }
+
+            int menor = 0;
+            int meio = 0;
+            int maior = 0;
+
+            if (n1 > n2 && n1 > n3)
+            {
+                maior = n1;
+            }
+            else if (n2 > n1 && n2 > n3)
+            {
+                maior = n2;
+            }
+            else
+                maior = n3;
+
+            if (n1 < n2 && n1 < n3)
+            {
+                menor = n1;
+            }
+            else if (n2 < n1 && n2 < n3)
+            {
+                menor = n2;
+            }
+            else
+            {
+                menor = n3;
+            }
+            if (n1 != menor && n1 != maior)
+            {
+                meio = n1;
+            }
+            else if (n2 != menor && n2 != maior)
+            {
+                meio = n2;
+            }
+            else
+            {
+                meio = n3;
+            }
+            return "a ordem crescente é:" + menor + "," + meio + "," + maior;
+        }
+
+        [HttpGet("ExercicioCasa31")]
+        public string ExercicioCasa31(decimal ladoA, decimal ladoB, decimal ladoC)
+        //31) Ler 3 valores (A, B e C) representando as medidas dos lados de um triângulo e escrever se formam
+        //ou não um triângulo.OBS: para formar um triângulo, o valor de cada lado deve ser menor que a soma
+        //dos outros 2 lados.
+        {
+            if ((ladoA + ladoB) > ladoC || (ladoB + ladoC) > ladoA ||)
+            {
+                return "Formam um triangulo";
+            }
+            else 
+            {
+                return "Não formam um triangulo";
+            }
+            if ((ladoB + ladoC) > ladoA)
+            {
+                return "Formam um triangulo";
+            }
+            else 
+            {
+                return "Não formam um triangulo";
+            }
+            if ((ladoA + ladoC) > ladoB)
+            {
+                return "Formam um triangulo";
+            }
+            else 
+            {
+                return "Não formam um triangulo";
+            }//
+
+        }
+        // [HttpGet("ExercicioCasa32")]
+        //public string ExercicioCasa32(string time1, string time2)
+
+        //32) Ler o nome de 2 times e o número de gols marcados na partida (para cada time). Escrever o nome
+        //do vencedor.Caso não haja vencedor deverá ser impressa a palavra EMPATE.
+
+        // [HttpGet("ExercicioCasa33")]
+        //public string ExercicioCasa33(intvalor1, int valor2)
+
+
+        // 33) Ler dois valores e imprimir uma das três mensagens a seguir:
+        //‘Números iguais’, caso os números sejam iguais
+        //‘Primeiro é maior’, caso o primeiro seja maior que o segundo;
+        //‘Segundo maior’, caso o segundo seja maior que o primeiro.
+
+        // [HttpGet("ExercicioCasa35")]
+        //public string ExercicioCasa35(intvalor1, int valor2)
+
+
+        // Um posto está vendendo combustíveis com a seguinte tabela de descontos:
+        //até 20 litros, desconto de 3% por litro Álcool acima de 20 litros, desconto de 5% por litro
+        //até 20 litros, desconto de 4% por litro Gasolina acima de 20 litros, desconto de 6% por litro
+        //Escreva um algoritmo que leia o número de litros vendidos e o tipo de combustível(codificado da
+        //seguinte forma: A-álcool, G-gasolina), calcule e imprima o valor a ser pago pelo cliente sabendo-se
+        //que o preço do litro da gasolina é R$ 3,30 e o preço do litro do álcool é R$ 2,90.
+
+        // [HttpGet("ExercicioCasa36")]
+        //public string ExercicioCasa36(intvalor1, int valor2)
+
+        //Escreva um algoritmo que leia as idades de 2 homens e de 2 mulheres(considere que as idades
+        //dos homens serão sempre diferentes entre si, bem como as das mulheres). Calcule e escreva a soma
+        //das idades do homem mais velho com a mulher mais nova, e o produto das idades do homem mais
+        //novo com a mulher mais velha.
+
+        // [HttpGet("ExercicioCasa37")]
+        //public string ExercicioCasa37(intvalor1, int valor2)
+
+        //Uma fruteira está vendendo frutas com a seguinte tabela de preços:
+        //Até 5 Kg Acima de 5 Kg
+        //Morango R$ 2,50 por Kg R$ 2,20 por Kg
+        //Maçã R$ 1,80 por Kg R$ 1,50 por Kg
+        //Se o cliente comprar mais de 8 Kg em frutas ou o valor total da compra ultrapassar R$ 25,00, receberá
+        //ainda um desconto de 10% sobre este total.Escreva um algoritmo para ler a quantidade(em Kg) de
+        //morangos e a quantidade(em Kg) de maças adquiridas e escreva o valor a ser pago pelo cliente.
     }
 
-
-
 }
+
+
+
+
 
 
 
