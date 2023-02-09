@@ -455,18 +455,15 @@ namespace ProjetoAula1.Controllers
 
         [HttpGet("ExercicioCasa33")]
         public string ExercicioCasa33(int valor1, int valor2)
+        // em ternario 
         // 33) Ler dois valores e imprimir uma das três mensagens a seguir:
         //‘Números iguais’, caso os números sejam iguais
         //‘Primeiro é maior’, caso o primeiro seja maior que o segundo;
         //‘Segundo maior’, caso o segundo seja maior que o primeiro.
         {
-            int retorno = 0;
-            {
-                if (valor1 == valor2)
-                    retorno += "Números iguais";
 
-            }
-
+            string variavelRetorno = (valor1 > valor2) ? "O numero maior é: numero1!" : (valor2 > valor1) ? "O numero maior é: numero2!" : (valor1 == valor2) ? "O numero é igual!";
+            return variavelRetorno;
         }
         // [HttpGet("ExercicioCasa35")]
         //public string ExercicioCasa35(intvalor1, int valor2)
