@@ -399,53 +399,75 @@ namespace ProjetoAula1.Controllers
             return "a ordem crescente é:" + menor + "," + meio + "," + maior;
         }
 
-        [HttpGet("ExercicioCasa31")]
-        public string ExercicioCasa31(decimal ladoA, decimal ladoB, decimal ladoC)
+        //[HttpGet("ExercicioCasa31")]
+        // public string ExercicioCasa31(decimal ladoA, decimal ladoB, decimal ladoC)
         //31) Ler 3 valores (A, B e C) representando as medidas dos lados de um triângulo e escrever se formam
         //ou não um triângulo.OBS: para formar um triângulo, o valor de cada lado deve ser menor que a soma
         //dos outros 2 lados.
-        {
-            if ((ladoA + ladoB) > ladoC || (ladoB + ladoC) > ladoA ||)
-            {
-                return "Formam um triangulo";
-            }
-            else 
-            {
-                return "Não formam um triangulo";
-            }
-            if ((ladoB + ladoC) > ladoA)
-            {
-                return "Formam um triangulo";
-            }
-            else 
-            {
-                return "Não formam um triangulo";
-            }
-            if ((ladoA + ladoC) > ladoB)
-            {
-                return "Formam um triangulo";
-            }
-            else 
-            {
-                return "Não formam um triangulo";
-            }//
+        // {
+        //  if ((ladoA + ladoB) > ladoC || (ladoB + ladoC) > ladoA ||)
+        //{
+        //    return "Formam um triangulo";
+        // }
+        // else
+        //{
+        //    return "Não formam um triangulo";
+        //}
+        //   if ((ladoB + ladoC) > ladoA)
+        // {
+        //    return "Formam um triangulo";
+        //}
+        // else
+        // {
+        //   return "Não formam um triangulo";
+        // }
+        //  if ((ladoA + ladoC) > ladoB)
+        //  {
+        //    return "Formam um triangulo";
+        // }
+        // else
+        // {
+        //  return "Não formam um triangulo";
+        //}
 
-        }
-        // [HttpGet("ExercicioCasa32")]
-        //public string ExercicioCasa32(string time1, string time2)
+        // }
+        [HttpGet("ExercicioCasa32")]
+        public string ExercicioCasa32(string time1, string time2, int golstime1, int golstime2)
 
         //32) Ler o nome de 2 times e o número de gols marcados na partida (para cada time). Escrever o nome
         //do vencedor.Caso não haja vencedor deverá ser impressa a palavra EMPATE.
+        {
+            string vencedor = "vazio";
 
-        // [HttpGet("ExercicioCasa33")]
-        //public string ExercicioCasa33(intvalor1, int valor2)
+            if (golstime1 > golstime2)
+                vencedor = time1;
+            else
+            {
+                vencedor = time2;
+            }
+            if (golstime2 == golstime1)
+            {
+                vencedor = "EMPATE!";
+            }
+            return "O vencedor foi:" + vencedor;
+        }
 
 
+        [HttpGet("ExercicioCasa33")]
+        public string ExercicioCasa33(int valor1, int valor2)
         // 33) Ler dois valores e imprimir uma das três mensagens a seguir:
         //‘Números iguais’, caso os números sejam iguais
         //‘Primeiro é maior’, caso o primeiro seja maior que o segundo;
         //‘Segundo maior’, caso o segundo seja maior que o primeiro.
+        {
+            int retorno = 0;
+            {
+                if (valor1 == valor2)
+                    retorno += "Números iguais";
 
+            }
+
+        }
         // [HttpGet("ExercicioCasa35")]
         //public string ExercicioCasa35(intvalor1, int valor2)
 
