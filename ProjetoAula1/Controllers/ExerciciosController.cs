@@ -462,7 +462,7 @@ namespace ProjetoAula1.Controllers
         //‘Segundo maior’, caso o segundo seja maior que o primeiro.
         {
 
-            string variavelRetorno = (valor1 > valor2) ? "O numero maior é: numero1!" : (valor2 > valor1) ? "O numero maior é: numero2!" : (valor1 == valor2) ? "O numero é igual!";
+            string variavelRetorno = (valor1 > valor2) ? "O numero maior é: numero1!" : (valor2 > valor1) ? "O numero maior é: numero2!" : (valor1 == valor2) ? "O numero é igual!":"";
             return variavelRetorno;
         }
         // [HttpGet("ExercicioCasa35")]
@@ -494,7 +494,64 @@ namespace ProjetoAula1.Controllers
         //Se o cliente comprar mais de 8 Kg em frutas ou o valor total da compra ultrapassar R$ 25,00, receberá
         //ainda um desconto de 10% sobre este total.Escreva um algoritmo para ler a quantidade(em Kg) de
         //morangos e a quantidade(em Kg) de maças adquiridas e escreva o valor a ser pago pelo cliente.
+
+        [HttpGet("Repeticao")]
+        public string LacosRepeticao(int[] itens)        
+        {
+            string retorno = "";
+            int[] idades= new int[6] { 1, 4, 9, 12, 33, 14 };
+            retorno += " FOR ";
+            for (int z=0;z<idades.Length; z++)//REPITA
+            {
+                // FOR 1, 4, 9, 12, 33, 14                
+                retorno += idades[z] + ",";
+
+                idades[z] = z;
+            }
+            retorno += " WHILE ";
+            int i = 0;
+            while(i < idades.Length)//ENQUANTO
+            {
+                //while 0, 4, 9, 12, 33, 14
+                //retorno += idades[i] + ",";
+
+                idades[i] = i;
+                i++;
+            }
+
+            return retorno;
+
+        }
+        // receber uma lista de vetores inteiros e multiplicar por dois e retornar a lista como uma string
+        [HttpPost("Repeticao2")]
+        public string LacosRepeticao2(int[] itens)
+        {
+            string retorno = "";
+            // 0,1,2,3,4,5
+            for (int i = 0; i < itens.Length; i++)
+            {
+                int b = itens[i] * 2;
+                retorno += b + ",";
+            }
+            return retorno;
+        }
+        [HttpPost("Repeticao2While")]
+        public string LacosRepeticaoWhile(int[] itens)
+        {
+            string retorno = "";
+            // 0,1,2,3,4,5
+            int i = 0;
+            while (i<itens.Length)
+            {
+                int b = itens[i] * 2;
+                retorno += b + ",";
+                i++;
+            }
+            return retorno;
+        }
     }
+
+
 
 }
 
